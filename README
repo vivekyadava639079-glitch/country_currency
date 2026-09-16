@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>देश और मुद्रा – Notes + Quiz (4 भाग)</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Segoe UI',system-ui,-apple-system,'Noto Sans Devanagari',sans-serif;
+       background:#eef2f7;color:#1e293b;line-height:1.65;padding:14px}
+  .wrap{max-width:1020px;margin:0 auto}
+  header{background:linear-gradient(135deg,#1e3a8a,#4f46e5 55%,#7c3aed);
+         color:#fff;border-radius:18px;padding:26px 22px;text-align:center;
+         box-shadow:0 10px 30px rgba(30,58,138,.28);margin-bottom:16px}
+  header h1{font-size:1.6rem}
+  header p{opacity:.9;font-size:.92rem;margin-top:6px}
+  .tabs{display:flex;gap:8px;background:#fff;padding:8px;border-radius:14px;
+        box-shadow:0 4px 14px rgba(15,23,42,.08);margin-bottom:18px;flex-wrap:wrap}
+  .tab{flex:1;min-width:110px;border:0;background:transparent;padding:11px 10px;border-radius:10px;
+       font-size:.95rem;font-weight:600;color:#475569;cursor:pointer;transition:.2s;font-family:inherit}
+  .tab:hover{background:#f1f5f9}
+  .tab.active{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;box-shadow:0 4px 12px rgba(79,70,229,.35)}
+  .panel{display:none;animation:fade .35s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .card{background:#fff;border-radius:16px;padding:18px;box-shadow:0 4px 16px rgba(15,23,42,.07);margin-bottom:16px}
+  .card h2{font-size:1.15rem;color:#312e81;margin-bottom:4px}
+  .card h3{font-size:1.02rem;color:#1e293b}
+  .sub{font-size:.85rem;color:#64748b;margin-bottom:12px}
+  .tblwrap{overflow-x:auto;border-radius:12px;border:1px solid #e2e8f0}
+  table{width:100%;border-collapse:collapse;font-size:.9rem;min-width:430px}
+  th,td{padding:9px 12px;text-align:left;border-bottom:1px solid #eef2f7}
+  th{background:#f1f5f9;font-weight:700;color:#334155;font-size:.85rem}
+  tbody tr:nth-child(even){background:#fafbfd}
+  tbody tr:hover{background:#eef2ff}
+  tbody tr:last-child td{border-bottom:0}
+  .cur{font-weight:700;color:#4338ca}
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;margin-top:10px}
+  .fact{background:linear-gradient(135deg,#f0f9ff,#e0e7ff);border-left:4px solid #4f46e5;
+        border-radius:10px;padding:10px 12px;font-size:.87rem}
+  .fact b{color:#312e81}
+  .center{text-align:center}
+  .btn{border:0;border-radius:11px;padding:12px 22px;font-size:.95rem;font-weight:700;
+       cursor:pointer;font-family:inherit;transition:.2s}
+  .btn.primary{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;box-shadow:0 6px 16px rgba(79,70,229,.32)}
+  .btn.primary:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(79,70,229,.42)}
+  .btn:disabled{opacity:.45;cursor:not-allowed;transform:none!important;box-shadow:none}
+  .btn.ghost{background:#eef2ff;color:#4338ca}
+  .btn.ghost:hover{background:#e0e7ff}
+  .btn.danger{background:#fee2e2;color:#b91c1c}
+  .btn.danger:hover{background:#fecaca}
+  .btn.warn{background:#fef3c7;color:#b45309}
+  .btn.warn:hover{background:#fde68a}
+  .btn.sm{padding:8px 14px;font-size:.82rem}
+
+  /* Quiz mode cards */
+  .modes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-top:14px}
+  .mode{border:2px solid #e2e8f0;border-radius:14px;padding:16px;cursor:pointer;transition:.2s;
+        background:linear-gradient(135deg,#fafbff,#f5f3ff);text-align:center}
+  .mode:hover{border-color:#a5b4fc;transform:translateY(-3px);box-shadow:0 8px 20px rgba(79,70,229,.15)}
+  .mode .icon{font-size:2rem;margin-bottom:6px}
+  .mode .name{font-weight:800;color:#312e81;font-size:1rem;margin-bottom:4px}
+  .mode .info{font-size:.82rem;color:#64748b}
+  .mode .badge2{display:inline-block;background:#4f46e5;color:#fff;padding:2px 10px;border-radius:99px;
+                font-size:.72rem;font-weight:700;margin-top:6px}
+  .mode.part1{border-left:6px solid #3b82f6}
+  .mode.part2{border-left:6px solid #10b981}
+  .mode.part3{border-left:6px solid #f59e0b}
+  .mode.part4{border-left:6px solid #ef4444}
+
+  .qtop{display:flex;justify-content:space-between;align-items:center;gap:8px;
+        font-size:.88rem;font-weight:700;color:#4338ca;margin-bottom:8px;flex-wrap:wrap}
+  .qtop .left{display:flex;gap:8px;flex-wrap:wrap}
+  .qtop .right{display:flex;gap:8px;flex-wrap:wrap}
+  .progress{height:7px;background:#e2e8f0;border-radius:99px;overflow:hidden;margin-bottom:12px}
+  #progressBar{height:100%;width:0;background:linear-gradient(90deg,#6366f1,#a855f7);
+               border-radius:99px;transition:width .3s}
+  .timerRow{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  .timerBarWrap{flex:1;height:9px;background:#e2e8f0;border-radius:99px;overflow:hidden}
+  #timerBar{height:100%;width:100%;border-radius:99px;transition:width .9s linear,background .3s}
+  #timerText{font-weight:800;font-size:.88rem;color:#475569;min-width:38px;text-align:right}
+  #questionText{font-size:1.05rem;margin-bottom:16px;line-height:1.7}
+  .options{display:grid;gap:10px}
+  .opt{display:flex;align-items:center;gap:12px;width:100%;text-align:left;
+       background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;padding:12px 14px;
+       font-size:.93rem;font-family:inherit;color:#1e293b;cursor:pointer;transition:.18s}
+  .opt:hover{border-color:#a5b4fc;background:#f5f3ff}
+  .opt .badge{flex:0 0 28px;height:28px;display:grid;place-items:center;border-radius:8px;
+              background:#e0e7ff;color:#4338ca;font-weight:800;font-size:.82rem}
+  .opt.sel{border-color:#4f46e5;background:#eef2ff;box-shadow:0 0 0 3px rgba(79,70,229,.13)}
+  .opt.sel .badge{background:#4f46e5;color:#fff}
+  .opt.locked{cursor:default;opacity:.85}
+  .opt.locked:hover{border-color:#e2e8f0;background:#f8fafc}
+  .opt.correct{border-color:#22c55e;background:#f0fdf4}
+  .opt.wrong{border-color:#ef4444;background:#fef2f2}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin:14px 0}
+  .stat{background:#f8fafc;border:1px solid #e2e8f0;border-radius:12px;padding:12px 8px;text-align:center}
+  .stat .val{font-size:1.35rem;font-weight:800;color:#312e81}
+  .stat .lbl{font-size:.75rem;color:#64748b;font-weight:600;margin-top:2px}
+  .stat.g .val{color:#15803d}.stat.r .val{color:#dc2626}
+  .stat.y .val{color:#b45309}.stat.b .val{color:#1d4ed8}
+  .verdict{border-radius:12px;padding:14px;text-align:center;font-weight:700;font-size:1rem;margin-bottom:12px}
+  .v-good{background:#dcfce7;color:#15803d;border:1px solid #86efac}
+  .v-mid{background:#fef3c7;color:#b45309;border:1px solid #fcd34d}
+  .v-bad{background:#fee2e2;color:#b91c1c;border:1px solid #fca5a5}
+  .reviewBox{max-height:520px;overflow-y:auto;padding-right:6px;border-radius:12px}
+  .rev{border-left:5px solid #cbd5e1;background:#f8fafc;border-radius:10px;padding:10px 12px;margin-bottom:8px}
+  .rev.ok{border-left-color:#22c55e;background:#f0fdf4}
+  .rev.no{border-left-color:#ef4444;background:#fef2f2}
+  .rev.sk{border-left-color:#f59e0b;background:#fffbeb}
+  .rev .rq{font-weight:700;font-size:.88rem;margin-bottom:5px}
+  .rev .ra{font-size:.82rem;color:#475569}
+  .rev .ra b{color:#15803d}.rev .ra i{color:#dc2626;font-style:normal;font-weight:700}
+  .tag{display:inline-block;font-size:.68rem;font-weight:800;padding:2px 8px;border-radius:99px;margin-left:5px}
+  .tag.ok{background:#22c55e;color:#fff}.tag.no{background:#ef4444;color:#fff}.tag.sk{background:#f59e0b;color:#fff}
+  footer{text-align:center;font-size:.8rem;color:#94a3b8;padding:18px 0}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <h1>🌍 देश, राजधानी और मुद्रा (Country · Capital · Currency)</h1>
+    <p>Notes + 4 भागों वाला Quiz — SSC, UPSC, Railway, Banking, State PCS</p>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="notes" onclick="showTab('notes')">📘 Notes</button>
+    <button class="tab" data-tab="quiz" onclick="showTab('quiz')">📝 Quiz</button>
+    <button class="tab" data-tab="result" onclick="showTab('result')">📊 Result</button>
+  </nav>
+
+  <!-- ================= NOTES ================= -->
+  <section id="notes" class="panel active">
+    <div class="card">
+      <h2>⭐ सबसे महत्वपूर्ण तथ्य</h2>
+      <div class="facts">
+        <div class="fact"><b>सबसे महंगी मुद्रा:</b> कुवैती दिनार (Kuwaiti Dinar)</div>
+        <div class="fact"><b>सबसे ज़्यादा प्रयुक्त:</b> US डॉलर (US Dollar)</div>
+        <div class="fact"><b>सबसे ज़्यादा देशों में:</b> यूरो (Euro) — 20 देश</div>
+        <div class="fact"><b>भारत में नोट जारी:</b> RBI</div>
+        <div class="fact"><b>भारत में सिक्के जारी:</b> भारत सरकार</div>
+        <div class="fact"><b>₹ चिन्ह के डिज़ाइनर:</b> डी. उदय कुमार (2010)</div>
+        <div class="fact"><b>जापान:</b> येन (Yen) — तीसरी बड़ी रिज़र्व करेंसी</div>
+        <div class="fact"><b>रुपया/रुपिया मुद्रा:</b> भारत, पाकिस्तान, नेपाल, श्रीलंका, इंडोनेशिया</div>
+      </div>
+    </div>
+    <div id="notesContainer"></div>
+    <div class="card center">
+      <button class="btn primary" onclick="showTab('quiz')">📝 अब Quiz दो और खुद को परखो</button>
+    </div>
+  </section>
+
+  <!-- ================= QUIZ ================= -->
+  <section id="quiz" class="panel">
+
+    <!-- Mode selection -->
+    <div id="quizMenu" class="card">
+      <h2 style="justify-content:center;text-align:center">🎯 Quiz के 4 भाग चुनें</h2>
+      <p class="sub" style="text-align:center">हर भाग में प्रश्नों की संख्या और समय अलग है</p>
+      <div class="modes">
+        <div class="mode part1" onclick="startQuiz('currency')">
+          <div class="icon">💱</div>
+          <div class="name">भाग 1 — केवल मुद्रा</div>
+          <div class="info">सिर्फ Currency पूछे जाएँगे</div>
+          <div class="info">50 प्रश्न · 20 सेकंड/प्रश्न</div>
+          <span class="badge2">50 Q</span>
+        </div>
+        <div class="mode part2" onclick="startQuiz('capital')">
+          <div class="icon">🏛️</div>
+          <div class="name">भाग 2 — केवल राजधानी</div>
+          <div class="info">सिर्फ Capital पूछे जाएँगे</div>
+          <div class="info">50 प्रश्न · 20 सेकंड/प्रश्न</div>
+          <span class="badge2">50 Q</span>
+        </div>
+        <div class="mode part3" onclick="startQuiz('both')">
+          <div class="icon">🎯</div>
+          <div class="name">भाग 3 — राजधानी + मुद्रा</div>
+          <div class="info">दोनों मिलाकर (सबसे बड़ा भाग)</div>
+          <div class="info">200 प्रश्न · 15 सेकंड/प्रश्न</div>
+          <span class="badge2">200 Q</span>
+        </div>
+        <div class="mode part4" onclick="startQuiz('mixed')">
+          <div class="icon">🎲</div>
+          <div class="name">भाग 4 — मिश्रित (विशेष सहित)</div>
+          <div class="info">राजधानी + मुद्रा + विशेष तथ्य</div>
+          <div class="info">50 प्रश्न · 30 सेकंड/प्रश्न</div>
+          <span class="badge2">50 Q</span>
+        </div>
+      </div>
+      <div style="margin-top:16px;background:#fffbeb;border:1px dashed #fcd34d;border-radius:12px;padding:12px 16px;font-size:.86rem;color:#78350f">
+        <b>नियम:</b> ⏱️ हर प्रश्न का अलग समय · ✅ सही = +1 · ❌ गलत = −1 · ⏭️ छोड़ा = 0 · 🔙 Back button से पिछला प्रश्न देख/बदल सकते हैं · Submit बटन विकल्प चुनने पर ही enable होगा।
+      </div>
+    </div>
+
+    <!-- Quiz screen -->
+    <div id="quizBox" style="display:none">
+      <div class="qtop">
+        <div class="left">
+          <button class="btn ghost sm" id="backBtn" onclick="handleAction({type:'navigate',payload:{direction:'back'}})" disabled>⬅️ पीछे</button>
+          <span id="qCounter" style="align-self:center">प्रश्न 1/50</span>
+        </div>
+        <div class="right">
+          <span id="scoreLive" style="align-self:center">अंक: 0</span>
+          <button class="btn danger sm" onclick="handleAction({type:'navigate',payload:{direction:'exit'}})">✖️ बाहर</button>
+        </div>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+
+      <div class="timerRow">
+        <div class="timerBarWrap"><div id="timerBar"></div></div>
+        <span id="timerText">20s</span>
+      </div>
+
+      <div class="card">
+        <div style="font-size:.78rem;color:#6366f1;font-weight:700;margin-bottom:6px" id="qTypeBadge">—</div>
+        <h3 id="questionText">—</h3>
+        <div id="options" class="options"></div>
+      </div>
+
+      <div class="center" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button id="nextBtn" class="btn primary" onclick="handleAction({type:'submit',payload:{mode:'answer'}})" disabled>✅ Submit करें</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= RESULT ================= -->
+  <section id="result" class="panel">
+    <div id="resultBox" class="card center">
+      <h2 style="justify-content:center">📊 Result</h2>
+      <p class="sub">अभी तक कोई Quiz नहीं दिया गया।</p>
+      <button class="btn primary" onclick="showTab('quiz')">Quiz दें</button>
+    </div>
+  </section>
+
+  <footer>© मुद्रा GK — Practice makes perfect 💪</footer>
+</div>
+
+<script>
+/* =========================================================
+   1) COUNTRIES DATA (Hindi + English currency names)
+   ========================================================= */
+const COUNTRIES = [
+  // एशिया
+  { region:"एशिया", country:"भारत", capital:"नई दिल्ली", currencyHi:"भारतीय रुपया", currencyEn:"Indian Rupee" },
+  { region:"एशिया", country:"जापान", capital:"टोक्यो", currencyHi:"येन", currencyEn:"Yen" },
+  { region:"एशिया", country:"चीन", capital:"बीजिंग", currencyHi:"युआन / रेनमिनबी", currencyEn:"Yuan / Renminbi" },
+  { region:"एशिया", country:"दक्षिण कोरिया", capital:"सियोल", currencyHi:"वॉन", currencyEn:"Won" },
+  { region:"एशिया", country:"उत्तर कोरिया", capital:"प्योंगयांग", currencyHi:"वॉन", currencyEn:"Won" },
+  { region:"एशिया", country:"बांग्लादेश", capital:"ढाका", currencyHi:"टका", currencyEn:"Taka" },
+  { region:"एशिया", country:"पाकिस्तान", capital:"इस्लामाबाद", currencyHi:"पाकिस्तानी रुपया", currencyEn:"Pakistani Rupee" },
+  { region:"एशिया", country:"नेपाल", capital:"काठमांडू", currencyHi:"नेपाली रुपया", currencyEn:"Nepalese Rupee" },
+  { region:"एशिया", country:"भूटान", capital:"थिम्पू", currencyHi:"न्गुल्ट्रम", currencyEn:"Ngultrum" },
+  { region:"एशिया", country:"श्रीलंका", capital:"श्री जयवर्धनेपुरा कोट्टे", currencyHi:"श्रीलंकाई रुपया", currencyEn:"Sri Lankan Rupee" },
+  { region:"एशिया", country:"म्यांमार", capital:"नायप्यीडॉ", currencyHi:"क्यात", currencyEn:"Kyat" },
+  { region:"एशिया", country:"थाईलैंड", capital:"बैंकॉक", currencyHi:"बात", currencyEn:"Baht" },
+  { region:"एशिया", country:"मलेशिया", capital:"कुआलालंपुर", currencyHi:"रिंगिट", currencyEn:"Ringgit" },
+  { region:"एशिया", country:"इंडोनेशिया", capital:"जकार्ता", currencyHi:"रुपिया", currencyEn:"Rupiah" },
+  { region:"एशिया", country:"फिलीपींस", capital:"मनीला", currencyHi:"पेसो", currencyEn:"Peso" },
+  { region:"एशिया", country:"सिंगापुर", capital:"सिंगापुर", currencyHi:"सिंगापुर डॉलर", currencyEn:"Singapore Dollar" },
+  { region:"एशिया", country:"वियतनाम", capital:"हनोई", currencyHi:"डोंग", currencyEn:"Dong" },
+  { region:"एशिया", country:"अफगानिस्तान", capital:"काबुल", currencyHi:"अफगानी", currencyEn:"Afghani" },
+  { region:"एशिया", country:"मंगोलिया", capital:"उलानबातर", currencyHi:"तुगरिक", currencyEn:"Tugrik" },
+  { region:"एशिया", country:"कजाकिस्तान", capital:"अस्ताना", currencyHi:"तेंगे", currencyEn:"Tenge" },
+  { region:"एशिया", country:"मालदीव", capital:"माले", currencyHi:"रुफिया", currencyEn:"Rufiyaa" },
+  { region:"एशिया", country:"मॉरीशस", capital:"पोर्ट लुई", currencyHi:"मॉरीशियन रुपया", currencyEn:"Mauritian Rupee" },
+  { region:"एशिया", country:"सेशेल्स", capital:"विक्टोरिया", currencyHi:"सेशेल्स रुपया", currencyEn:"Seychellois Rupee" },
+  { region:"एशिया", country:"कंबोडिया", capital:"नोम पेन्ह", currencyHi:"रील", currencyEn:"Riel" },
+  { region:"एशिया", country:"लाओस", capital:"वियनतियाने", currencyHi:"किप", currencyEn:"Kip" },
+  { region:"एशिया", country:"ब्रुनेई", capital:"बंदर सेरी बेगवान", currencyHi:"ब्रुनेई डॉलर", currencyEn:"Brunei Dollar" },
+  { region:"एशिया", country:"ताइवान", capital:"ताइपे", currencyHi:"न्यू ताइवान डॉलर", currencyEn:"New Taiwan Dollar" },
+  { region:"एशिया", country:"अज़रबैजान", capital:"बाकू", currencyHi:"मनात", currencyEn:"Manat" },
+  { region:"एशिया", country:"जॉर्जिया", capital:"त्बिलिसी", currencyHi:"लारी", currencyEn:"Lari" },
+  { region:"एशिया", country:"आर्मेनिया", capital:"येरेवान", currencyHi:"द्राम", currencyEn:"Dram" },
+  { region:"एशिया", country:"उज़्बेकिस्तान", capital:"ताशकंद", currencyHi:"सोम", currencyEn:"Som" },
+  { region:"एशिया", country:"किर्गिस्तान", capital:"बिश्केक", currencyHi:"सोम", currencyEn:"Som" },
+  { region:"एशिया", country:"ताजिकिस्तान", capital:"दुशांबे", currencyHi:"सोमोनी", currencyEn:"Somoni" },
+  { region:"एशिया", country:"तुर्कमेनिस्तान", capital:"अश्गाबात", currencyHi:"मनात", currencyEn:"Manat" },
+  // मध्य-पूर्व
+  { region:"मध्य-पूर्व", country:"सऊदी अरब", capital:"रियाद", currencyHi:"सऊदी रियाल", currencyEn:"Saudi Riyal" },
+  { region:"मध्य-पूर्व", country:"संयुक्त अरब अमीरात (UAE)", capital:"अबू धाबी", currencyHi:"दिरहम", currencyEn:"Dirham" },
+  { region:"मध्य-पूर्व", country:"कतर", capital:"दोहा", currencyHi:"कतरी रियाल", currencyEn:"Qatari Riyal" },
+  { region:"मध्य-पूर्व", country:"कुवैत", capital:"कुवैत सिटी", currencyHi:"कुवैती दिनार", currencyEn:"Kuwaiti Dinar" },
+  { region:"मध्य-पूर्व", country:"बहरीन", capital:"मनामा", currencyHi:"बहरीनी दिनार", currencyEn:"Bahraini Dinar" },
+  { region:"मध्य-पूर्व", country:"ओमान", capital:"मस्कट", currencyHi:"ओमानी रियाल", currencyEn:"Omani Rial" },
+  { region:"मध्य-पूर्व", country:"ईरान", capital:"तेहरान", currencyHi:"ईरानी रियाल", currencyEn:"Iranian Rial" },
+  { region:"मध्य-पूर्व", country:"इराक", capital:"बगदाद", currencyHi:"इराकी दिनार", currencyEn:"Iraqi Dinar" },
+  { region:"मध्य-पूर्व", country:"इज़राइल", capital:"जेरूसलम", currencyHi:"शेकेल", currencyEn:"Shekel" },
+  { region:"मध्य-पूर्व", country:"तुर्की", capital:"अंकारा", currencyHi:"तुर्की लीरा", currencyEn:"Turkish Lira" },
+  { region:"मध्य-पूर्व", country:"जॉर्डन", capital:"अम्मान", currencyHi:"जॉर्डनियन दिनार", currencyEn:"Jordanian Dinar" },
+  { region:"मध्य-पूर्व", country:"लेबनान", capital:"बेरूत", currencyHi:"लेबनानी पाउंड", currencyEn:"Lebanese Pound" },
+  { region:"मध्य-पूर्व", country:"यमन", capital:"सना", currencyHi:"यमनी रियाल", currencyEn:"Yemeni Rial" },
+  { region:"मध्य-पूर्व", country:"सीरिया", capital:"दमिश्क", currencyHi:"सीरियन पाउंड", currencyEn:"Syrian Pound" },
+  // यूरोप
+  { region:"यूरोप", country:"यूनाइटेड किंगडम", capital:"लंदन", currencyHi:"पाउंड स्टर्लिंग", currencyEn:"Pound Sterling" },
+  { region:"यूरोप", country:"जर्मनी", capital:"बर्लिन", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"फ्रांस", capital:"पेरिस", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"इटली", capital:"रोम", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"स्पेन", capital:"मैड्रिड", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"ग्रीस", capital:"एथेंस", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"नीदरलैंड", capital:"एम्स्टर्डम", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"पुर्तगाल", capital:"लिस्बन", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"रूस", capital:"मॉस्को", currencyHi:"रूबल", currencyEn:"Ruble" },
+  { region:"यूरोप", country:"स्विट्ज़रलैंड", capital:"बर्न", currencyHi:"स्विस फ्रैंक", currencyEn:"Swiss Franc" },
+  { region:"यूरोप", country:"स्वीडन", capital:"स्टॉकहोम", currencyHi:"क्रोना", currencyEn:"Krona" },
+  { region:"यूरोप", country:"नॉर्वे", capital:"ओस्लो", currencyHi:"क्रोन", currencyEn:"Krone" },
+  { region:"यूरोप", country:"डेनमार्क", capital:"कोपेनहेगन", currencyHi:"क्रोन", currencyEn:"Krone" },
+  { region:"यूरोप", country:"पोलैंड", capital:"वारसॉ", currencyHi:"ज़्लॉटी", currencyEn:"Zloty" },
+  { region:"यूरोप", country:"यूक्रेन", capital:"कीव", currencyHi:"रिव्निया", currencyEn:"Hryvnia" },
+  { region:"यूरोप", country:"चेक गणराज्य", capital:"प्राग", currencyHi:"कोरुना", currencyEn:"Koruna" },
+  { region:"यूरोप", country:"ऑस्ट्रिया", capital:"वियना", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"बेल्जियम", capital:"ब्रसेल्स", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"फ़िनलैंड", capital:"हेलसिंकी", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"हंगरी", capital:"बुडापेस्ट", currencyHi:"फोरिंट", currencyEn:"Forint" },
+  { region:"यूरोप", country:"आइसलैंड", capital:"रेकजाविक", currencyHi:"क्रोना", currencyEn:"Icelandic Krona" },
+  { region:"यूरोप", country:"आयरलैंड", capital:"डबलिन", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"रोमानिया", capital:"बुखारेस्ट", currencyHi:"लियू", currencyEn:"Leu" },
+  { region:"यूरोप", country:"बुल्गारिया", capital:"सोफिया", currencyHi:"लेव", currencyEn:"Lev" },
+  { region:"यूरोप", country:"क्रोएशिया", capital:"ज़ाग्रेब", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"सर्बिया", capital:"बेलग्रेड", currencyHi:"सर्बियन दिनार", currencyEn:"Serbian Dinar" },
+  { region:"यूरोप", country:"बेलारूस", capital:"मिन्स्क", currencyHi:"बेलारूसी रूबल", currencyEn:"Belarusian Ruble" },
+  { region:"यूरोप", country:"लिथुआनिया", capital:"विल्नियस", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"लातविया", capital:"रीगा", currencyHi:"यूरो", currencyEn:"Euro" },
+  { region:"यूरोप", country:"एस्टोनिया", capital:"तेलिन", currencyHi:"यूरो", currencyEn:"Euro" },
+  // अमेरिका
+  { region:"अमेरिका", country:"संयुक्त राज्य अमेरिका", capital:"वाशिंगटन डी.सी.", currencyHi:"US डॉलर", currencyEn:"US Dollar" },
+  { region:"अमेरिका", country:"कनाडा", capital:"ओटावा", currencyHi:"कनाडाई डॉलर", currencyEn:"Canadian Dollar" },
+  { region:"अमेरिका", country:"ब्राज़ील", capital:"ब्रासीलिया", currencyHi:"रियल", currencyEn:"Real" },
+  { region:"अमेरिका", country:"अर्जेंटीना", capital:"ब्यूनस आयर्स", currencyHi:"अर्जेंटीनाई पेसो", currencyEn:"Argentine Peso" },
+  { region:"अमेरिका", country:"मेक्सिको", capital:"मेक्सिको सिटी", currencyHi:"मेक्सिकन पेसो", currencyEn:"Mexican Peso" },
+  { region:"अमेरिका", country:"चिली", capital:"सैंटियागो", currencyHi:"चिलियन पेसो", currencyEn:"Chilean Peso" },
+  { region:"अमेरिका", country:"पेरू", capital:"लीमा", currencyHi:"सोल", currencyEn:"Sol" },
+  { region:"अमेरिका", country:"वेनेजुएला", capital:"काराकास", currencyHi:"बोलिवर", currencyEn:"Bolivar" },
+  { region:"अमेरिका", country:"क्यूबा", capital:"हवाना", currencyHi:"क्यूबाई पेसो", currencyEn:"Cuban Peso" },
+  { region:"अमेरिका", country:"कोलंबिया", capital:"बोगोटा", currencyHi:"कोलंबियन पेसो", currencyEn:"Colombian Peso" },
+  { region:"अमेरिका", country:"इक्वाडोर", capital:"क्विटो", currencyHi:"US डॉलर", currencyEn:"US Dollar" },
+  { region:"अमेरिका", country:"उरुग्वे", capital:"मोंटेवीडियो", currencyHi:"उरुग्वेयन पेसो", currencyEn:"Uruguayan Peso" },
+  { region:"अमेरिका", country:"पैराग्वे", capital:"असुंसियोन", currencyHi:"गुआरानी", currencyEn:"Guarani" },
+  { region:"अमेरिका", country:"बोलीविया", capital:"ला पाज़", currencyHi:"बोलिवियानो", currencyEn:"Boliviano" },
+  // अफ्रीका और ओशिनिया
+  { region:"अफ्रीका और ओशिनिया", country:"दक्षिण अफ्रीका", capital:"प्रिटोरिया", currencyHi:"रैंड", currencyEn:"Rand" },
+  { region:"अफ्रीका और ओशिनिया", country:"नाइजीरिया", capital:"अबुजा", currencyHi:"नाइरा", currencyEn:"Naira" },
+  { region:"अफ्रीका और ओशिनिया", country:"केन्या", capital:"नैरोबी", currencyHi:"केन्याई शिलिंग", currencyEn:"Kenyan Shilling" },
+  { region:"अफ्रीका और ओशिनिया", country:"मिस्र", capital:"काहिरा", currencyHi:"मिस्री पाउंड", currencyEn:"Egyptian Pound" },
+  { region:"अफ्रीका और ओशिनिया", country:"इथियोपिया", capital:"अदीस अबाबा", currencyHi:"बिरर", currencyEn:"Birr" },
+  { region:"अफ्रीका और ओशिनिया", country:"घाना", capital:"अक्रा", currencyHi:"सेडी", currencyEn:"Cedi" },
+  { region:"अफ्रीका और ओशिनिया", country:"मोरक्को", capital:"रबात", currencyHi:"मोरक्कन दिरहम", currencyEn:"Moroccan Dirham" },
+  { region:"अफ्रीका और ओशिनिया", country:"ट्यूनीशिया", capital:"ट्यूनिस", currencyHi:"ट्यूनीशियाई दिनार", currencyEn:"Tunisian Dinar" },
+  { region:"अफ्रीका और ओशिनिया", country:"ऑस्ट्रेलिया", capital:"कैनबरा", currencyHi:"ऑस्ट्रेलियाई डॉलर", currencyEn:"Australian Dollar" },
+  { region:"अफ्रीका और ओशिनिया", country:"न्यूज़ीलैंड", capital:"वेलिंगटन", currencyHi:"न्यूज़ीलैंड डॉलर", currencyEn:"New Zealand Dollar" },
+  { region:"अफ्रीका और ओशिनिया", country:"मेडागास्कर", capital:"अंटानानारिवो", currencyHi:"एरियरी", currencyEn:"Ariary" },
+  { region:"अफ्रीका और ओशिनिया", country:"ज़ाम्बिया", capital:"लुसाका", currencyHi:"क्वाचा", currencyEn:"Kwacha" },
+  { region:"अफ्रीका और ओशिनिया", country:"तंजानिया", capital:"दोदोमा", currencyHi:"तंजानियाई शिलिंग", currencyEn:"Tanzanian Shilling" },
+  { region:"अफ्रीका और ओशिनिया", country:"युगांडा", capital:"कंपाला", currencyHi:"युगांडाई शिलिंग", currencyEn:"Ugandan Shilling" },
+  { region:"अफ्रीका और ओशिनिया", country:"सेनेगल", capital:"डकार", currencyHi:"CFA फ्रैंक", currencyEn:"CFA Franc" },
+  { region:"अफ्रीका और ओशिनिया", country:"लीबिया", capital:"त्रिपोली", currencyHi:"लीबियन दिनार", currencyEn:"Libyan Dinar" },
+  { region:"अफ्रीका और ओशिनिया", country:"सूडान", capital:"खार्तूम", currencyHi:"सूडानी पाउंड", currencyEn:"Sudanese Pound" },
+  { region:"अफ्रीका और ओशिनिया", country:"अल्जीरिया", capital:"अल्जीयर्स", currencyHi:"अल्जीरियन दिनार", currencyEn:"Algerian Dinar" },
+  { region:"अफ्रीका और ओशिनिया", country:"फिजी", capital:"सुवा", currencyHi:"फिजियन डॉलर", currencyEn:"Fijian Dollar" },
+  { region:"अफ्रीका और ओशिनिया", country:"पापुआ न्यू गिनी", capital:"पोर्ट मोर्सबी", currencyHi:"किना", currencyEn:"Kina" }
+];
+
+/* विशेष प्रश्न */
+const SPECIAL_QUESTIONS = [
+  { q:"विश्व की सबसे महंगी मुद्रा कौन-सी है?", o:["कुवैती दिनार","US डॉलर","यूरो","पाउंड स्टर्लिंग"], a:0 },
+  { q:"भारत में नोट कौन जारी करता है?", o:["भारतीय रिज़र्व बैंक (RBI)","भारत सरकार","SBI","वित्त मंत्रालय"], a:0 },
+  { q:"₹ चिन्ह किसने डिज़ाइन किया?", o:["डी. उदय कुमार","आर. के. जोशी","एन. गोपालस्वामी","ए. पी. जे. अब्दुल कलाम"], a:0 },
+  { q:"यूरो का उपयोग कितने देश करते हैं?", o:["20","19","21","25"], a:0 },
+  { q:"जापान की राजधानी क्या है?", o:["टोक्यो","ओसाका","क्योटो","नागोया"], a:0 },
+  { q:"ऑस्ट्रेलिया की राजधानी क्या है?", o:["कैनबरा","सिडनी","मेलबर्न","पर्थ"], a:0 },
+  { q:"तुर्की की राजधानी क्या है?", o:["अंकारा","इस्तांबुल","इज़मिर","बुर्सा"], a:0 },
+  { q:"कनाडा की राजधानी क्या है?", o:["ओटावा","टोरंटो","वैंकूवर","मॉन्ट्रियल"], a:0 },
+  { q:"ब्राज़ील की राजधानी क्या है?", o:["ब्रासीलिया","रियो डी जनेरियो","साओ पाउलो","साल्वाडोर"], a:0 },
+  { q:"USA की राजधानी क्या है?", o:["वाशिंगटन डी.सी.","न्यूयॉर्क","लॉस एंजिल्स","शिकागो"], a:0 }
+];
+
+/* =========================================================
+   2) QUIZ MODES (4 भाग)
+   ========================================================= */
+const QUIZ_MODES = {
+  currency: { id:"currency", name:"केवल मुद्रा",     count:50,  timePerQ:20, type:"currency" },
+  capital:  { id:"capital",  name:"केवल राजधानी",   count:50,  timePerQ:20, type:"capital"  },
+  both:     { id:"both",     name:"राजधानी + मुद्रा", count:200, timePerQ:15, type:"both"    },
+  mixed:    { id:"mixed",    name:"मिश्रित (विशेष सहित)", count:50, timePerQ:30, type:"mixed"  }
+};
+
+/* =========================================================
+   3) STATE
+   ========================================================= */
+let quizData = [];
+let cur = 0;
+let marks = 0;
+let nCorrect = 0, nWrong = 0, nSkip = 0;
+let selected = null;
+let questionDone = false;
+let timeLeft = 0;
+let timerId = null;
+let review = [];          // review[i] = { q, your, correct, status, selectedIdx, type }
+let quizStartTime = 0;
+let currentMode = null;
+let currentTimePerQ = 20;
+let lockedView = false;    // true = viewing past question, can't change
+
+/* =========================================================
+   4) UTILITIES
+   ========================================================= */
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1));
+    [arr[i],arr[j]] = [arr[j],arr[i]];
+  }
+  return arr;
+}
+
+function showTab(id){
+  document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('active', p.id===id));
+  document.querySelectorAll('.tab').forEach(t=>t.classList.toggle('active', t.dataset.tab===id));
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+/* =========================================================
+   5) NESTED SWITCH — Action handler (सभी functions यहीं से)
+   ========================================================= */
+function handleAction(action) {
+  switch (action.type) {
+    case 'navigate':
+      switch (action.payload.direction) {
+        case 'back':
+          navigateBack();
+          break;
+        case 'forward':
+          navigateForward();
+          break;
+        case 'exit':
+          exitQuizConfirm();
+          break;
+        default:
+          console.warn('Unknown navigation:', action.payload.direction);
+      }
+      break;
+
+    case 'select':
+      switch (action.payload.kind) {
+        case 'option':
+          selectOption(action.payload.index);
+          break;
+        case 'clear':
+          clearSelection();
+          break;
+        default:
+          console.warn('Unknown select kind');
+      }
+      break;
+
+    case 'submit':
+      switch (action.payload.mode) {
+        case 'answer':
+          submitAnswer();
+          break;
+        case 'quiz':
+          finishQuiz();
+          break;
+        default:
+          console.warn('Unknown submit mode');
+      }
+      break;
+
+    case 'start':
+      switch (action.payload.mode) {
+        case 'currency': startQuiz('currency'); break;
+        case 'capital':  startQuiz('capital');  break;
+        case 'both':     startQuiz('both');     break;
+        case 'mixed':    startQuiz('mixed');    break;
+        default:         startQuiz('currency');
+      }
+      break;
+
+    default:
+      console.warn('Unknown action type:', action.type);
+  }
+}
+
+/* =========================================================
+   6) NESTED SWITCH — Question generation (mode + type)
+   ========================================================= */
+function generateQuestionsByMode(mode) {
+  const bank = [];
+  const allCapitals = COUNTRIES.map(c => c.capital);
+  const allCurrencies = COUNTRIES.map(c => `${c.currencyHi} (${c.currencyEn})`);
+
+  switch (mode) {
+    case 'currency':
+      COUNTRIES.forEach(c => {
+        bank.push(makeQuestion({
+          q: `देश "${c.country}" की मुद्रा क्या है?`,
+          correct: `${c.currencyHi} (${c.currencyEn})`,
+          pool: allCurrencies,
+          type: 'currency'
+        }));
+      });
+      break;
+
+    case 'capital':
+      COUNTRIES.forEach(c => {
+        bank.push(makeQuestion({
+          q: `देश "${c.country}" की राजधानी क्या है?`,
+          correct: c.capital,
+          pool: allCapitals,
+          type: 'capital'
+        }));
+      });
+      break;
+
+    case 'both':
+      COUNTRIES.forEach(c => {
+        // Nested switch inside both mode
+        switch (true) {
+          case true: // capital
+            bank.push(makeQuestion({
+              q: `देश "${c.country}" की राजधानी क्या है?`,
+              correct: c.capital,
+              pool: allCapitals,
+              type: 'capital'
+            }));
+            break;
+        }
+        switch (true) { // currency
+          case true:
+            bank.push(makeQuestion({
+              q: `देश "${c.country}" की मुद्रा क्या है?`,
+              correct: `${c.currencyHi} (${c.currencyEn})`,
+              pool: allCurrencies,
+              type: 'currency'
+            }));
+            break;
+        }
+      });
+      break;
+
+    case 'mixed':
+      COUNTRIES.forEach(c => {
+        bank.push(makeQuestion({
+          q: `देश "${c.country}" की राजधानी क्या है?`,
+          correct: c.capital,
+          pool: allCapitals,
+          type: 'capital'
+        }));
+        bank.push(makeQuestion({
+          q: `देश "${c.country}" की मुद्रा क्या है?`,
+          correct: `${c.currencyHi} (${c.currencyEn})`,
+          pool: allCurrencies,
+          type: 'currency'
+        }));
+      });
+      SPECIAL_QUESTIONS.forEach(sq => {
+        const opts = sq.o.map((text, i) => ({ text, ok: i === sq.a }));
+        shuffle(opts);
+        bank.push({
+          q: sq.q,
+          options: opts.map(o => o.text),
+          correctIndex: opts.findIndex(o => o.ok),
+          type: 'special'
+        });
+      });
+      break;
+
+    default:
+      // Nested switch fallback
+      switch (mode) {
+        case undefined:
+        case null:
+        case '':
+          COUNTRIES.forEach(c => {
+            bank.push(makeQuestion({
+              q: `देश "${c.country}" की राजधानी क्या है?`,
+              correct: c.capital,
+              pool: allCapitals,
+              type: 'capital'
+            }));
+          });
+          break;
+        default:
+          console.warn('Unknown mode:', mode);
+      }
+  }
+
+  return bank;
+}
+
+function makeQuestion({ q, correct, pool, type }) {
+  const distractors = [];
+  const used = new Set([correct]);
+  let attempts = 0;
+  while (distractors.length < 3 && attempts < 800) {
+    attempts++;
+    const random = pool[Math.floor(Math.random() * pool.length)];
+    if (!used.has(random)) {
+      used.add(random);
+      distractors.push(random);
+    }
+  }
+  while (distractors.length < 3) distractors.push("अन्य");
+  const options = [correct, ...distractors];
+  shuffle(options);
+  return {
+    q, options,
+    correctIndex: options.indexOf(correct),
+    type
+  };
+}
+
+/* =========================================================
+   7) QUIZ START
+   ========================================================= */
+function startQuiz(modeId) {
+  const modeCfg = QUIZ_MODES[modeId];
+  if (!modeCfg) return;
+
+  currentMode = modeCfg;
+  currentTimePerQ = modeCfg.timePerQ;
+
+  let bank = generateQuestionsByMode(modeId);
+  shuffle(bank);
+  quizData = bank.slice(0, modeCfg.count);
+
+  cur = 0; marks = 0;
+  nCorrect = 0; nWrong = 0; nSkip = 0;
+  review = [];
+  quizStartTime = Date.now();
+  lockedView = false;
+
+  document.getElementById('quizMenu').style.display = 'none';
+  document.getElementById('quizBox').style.display = 'block';
+  document.getElementById('scoreLive').textContent = 'अंक: 0';
+  document.getElementById('qCounter').textContent = `प्रश्न 1/${quizData.length}`;
+
+  showTab('quiz');
+  renderQuestion();
+}
+
+/* =========================================================
+   8) RENDER QUESTION
+   ========================================================= */
+function renderQuestion() {
+  const q = quizData[cur];
+  selected = (review[cur] && review[cur].selectedIdx !== undefined)
+    ? review[cur].selectedIdx : null;
+  questionDone = !!review[cur];
+
+  document.getElementById('qCounter').textContent = `प्रश्न ${cur+1}/${quizData.length}`;
+  document.getElementById('progressBar').style.width = (cur / quizData.length * 100) + '%';
+  document.getElementById('questionText').textContent = q.q;
+
+  // Type badge — nested switch
+  const badge = document.getElementById('qTypeBadge');
+  switch (q.type) {
+    case 'currency':
+      switch (true) { case true: badge.textContent = '💱 मुद्रा प्रश्न'; badge.style.color = '#4338ca'; break; }
+      break;
+    case 'capital':
+      switch (true) { case true: badge.textContent = '🏛️ राजधानी प्रश्न'; badge.style.color = '#15803d'; break; }
+      break;
+    case 'special':
+      switch (true) { case true: badge.textContent = '⭐ विशेष प्रश्न'; badge.style.color = '#b45309'; break; }
+      break;
+    default:
+      switch (true) { case true: badge.textContent = '❓ प्रश्न'; break; }
+  }
+
+  // Options
+  const box = document.getElementById('options');
+  box.innerHTML = '';
+  q.options.forEach((opt, i) => {
+    const b = document.createElement('button');
+    b.type = 'button';
+    b.className = 'opt';
+    if (questionDone && i === q.correctIndex) b.classList.add('correct');
+    if (questionDone && selected === i && i !== q.correctIndex) b.classList.add('wrong');
+    if (selected === i) b.classList.add('sel');
+    b.innerHTML = `<span class="badge">${'ABCD'[i]}</span><span>${opt}</span>`;
+    b.onclick = () => {
+      if (questionDone) return;
+      handleAction({ type:'select', payload:{ kind:'option', index:i } });
+    };
+    box.appendChild(b);
+  });
+
+  // Buttons
+  const nextBtn = document.getElementById('nextBtn');
+  const backBtn = document.getElementById('backBtn');
+
+  backBtn.disabled = (cur === 0);
+
+  if (questionDone) {
+    nextBtn.disabled = false;
+    nextBtn.textContent = (cur === quizData.length - 1) ? '📊 रिज़ल्ट देखें' : '➡️ अगला प्रश्न';
+  } else {
+    nextBtn.disabled = (selected === null);
+    nextBtn.textContent = '✅ Submit करें';
+  }
+
+  // Timer
+  if (questionDone) {
+    stopTimer();
+    document.getElementById('timerBar').style.width = '0%';
+    document.getElementById('timerText').textContent = '✔️';
+  } else {
+    startTimer();
+  }
+}
+
+/* =========================================================
+   9) SELECT / CLEAR
+   ========================================================= */
+function selectOption(i) {
+  if (questionDone) return;
+  selected = i;
+  document.querySelectorAll('#options .opt').forEach((el, j) => {
+    el.classList.toggle('sel', j === i);
+  });
+  const nextBtn = document.getElementById('nextBtn');
+  if (!nextBtn.disabled) return;
+  nextBtn.disabled = false;
+}
+
+function clearSelection() {
+  if (questionDone) return;
+  selected = null;
+  document.querySelectorAll('#options .opt').forEach(el => el.classList.remove('sel'));
+  document.getElementById('nextBtn').disabled = true;
+}
+
+/* =========================================================
+   10) TIMER
+   ========================================================= */
+function startTimer() {
+  stopTimer();
+  timeLeft = currentTimePerQ;
+  paintTimer();
+  timerId = setInterval(() => {
+    timeLeft--;
+    paintTimer();
+    if (timeLeft <= 0) {
+      stopTimer();
+      submitAnswer();   // auto-submit on timeout
+    }
+  }, 1000);
+}
+
+function stopTimer() {
+  if (timerId) { clearInterval(timerId); timerId = null; }
+}
+
+function paintTimer() {
+  const pct = Math.max(0, timeLeft) / currentTimePerQ * 100;
+  const bar = document.getElementById('timerBar');
+  bar.style.width = pct + '%';
+  bar.style.background =
+      pct > 50 ? 'linear-gradient(90deg,#22c55e,#16a34a)'
+    : pct > 25 ? 'linear-gradient(90deg,#f59e0b,#f97316)'
+    :            'linear-gradient(90deg,#ef4444,#dc2626)';
+  document.getElementById('timerText').textContent = Math.max(0, timeLeft) + 's';
+}
+
+/* =========================================================
+   11) SUBMIT ANSWER  (Nested switch for status)
+   ========================================================= */
+function submitAnswer() {
+  stopTimer();
+  const q = quizData[cur];
+  const wasAnswered = !!review[cur];
+  const oldStatus = wasAnswered ? review[cur].status : null;
+  let newStatus;
+
+  // Decide new status
+  if (selected === null) {
+    newStatus = 'skip';
+  } else if (selected === q.correctIndex) {
+    newStatus = 'correct';
+  } else {
+    newStatus = 'wrong';
+  }
+
+  // Nested switch: remove old contribution
+  if (wasAnswered) {
+    switch (oldStatus) {
+      case 'correct':
+        switch (true) { case true: marks -= 1; nCorrect--; break; }
+        break;
+      case 'wrong':
+        switch (true) { case true: marks += 1; nWrong--; break; }
+        break;
+      case 'skip':
+        switch (true) { case true: nSkip--; break; }
+        break;
+      default:
+        break;
+    }
+  }
+
+  // Nested switch: add new contribution
+  switch (newStatus) {
+    case 'correct':
+      switch (true) { case true: marks += 1; nCorrect++; break; }
+      break;
+    case 'wrong':
+      switch (true) { case true: marks -= 1; nWrong++; break; }
+      break;
+    case 'skip':
+      switch (true) { case true: nSkip++; break; }
+      break;
+    default:
+      break;
+  }
+
+  // Save review entry
+  review[cur] = {
+    q: q.q,
+    your: selected !== null ? q.options[selected] : null,
+    correct: q.options[q.correctIndex],
+    status: newStatus,
+    selectedIdx: selected,
+    type: q.type
+  };
+
+  document.getElementById('scoreLive').textContent = 'अंक: ' + marks;
+
+  // Move forward
+  if (cur >= quizData.length - 1) {
+    finishQuiz();
+  } else {
+    cur++;
+    renderQuestion();
+  }
+}
+
+/* =========================================================
+   12) NAVIGATE BACK / FORWARD
+   ========================================================= */
+function navigateBack() {
+  if (cur === 0) return;
+  stopTimer();
+  cur--;
+  renderQuestion();
+}
+
+function navigateForward() {
+  if (cur >= quizData.length - 1) return;
+  if (questionDone || selected !== null) {
+    cur++;
+    renderQuestion();
+  }
+}
+
+/* =========================================================
+   13) EXIT QUIZ
+   ========================================================= */
+function exitQuizConfirm() {
+  const ok = confirm('क्या आप Quiz से बाहर जाना चाहते हैं? आपका progress खो जाएगा।');
+  if (!ok) return;
+  stopTimer();
+  document.getElementById('quizBox').style.display = 'none';
+  document.getElementById('quizMenu').style.display = 'block';
+  quizData = []; review = []; cur = 0;
+}
+
+/* =========================================================
+   14) FINISH QUIZ + RESULT
+   ========================================================= */
+function finishQuiz() {
+  stopTimer();
+  document.getElementById('quizBox').style.display = 'none';
+  document.getElementById('quizMenu').style.display = 'block';
+
+  const total = quizData.length;
+  const attempted = nCorrect + nWrong;
+  const accuracy = attempted ? Math.round(nCorrect / attempted * 100) : 0;
+  const maxMarks = total;
+  const timeTaken = Math.round((Date.now() - quizStartTime) / 1000);
+  const mm = String(Math.floor(timeTaken / 60)).padStart(2, '0');
+  const ss = String(timeTaken % 60).padStart(2, '0');
+
+  // Nested switch for verdict
+  let vClass = 'v-bad', vText = '';
+  switch (true) {
+    case (marks >= maxMarks * 0.8):
+      switch (true) { case true: vClass = 'v-good'; vText = '🏆 शानदार! तुम्हारी तैयारी बहुत मज़बूत है।'; break; }
+      break;
+    case (marks >= maxMarks * 0.5):
+      switch (true) { case true: vClass = 'v-mid'; vText = '👍 अच्छा प्रयास! थोड़ी और प्रैक्टिस से perfect होगा।'; break; }
+      break;
+    default:
+      switch (true) { case true: vClass = 'v-bad'; vText = '📚 Notes दोबारा पढ़ो और फिर Quiz दो — सुधार कर सकते हो!'; break; }
+  }
+
+  let html = `
+    <div class="card">
+      <h2 style="justify-content:center;text-align:center">📊 परिणाम — ${currentMode ? currentMode.name : ''}</h2>
+      <p class="sub" style="text-align:center">कुल ${total} प्रश्न • प्रति गलत −1 अंक</p>
+      <div class="verdict ${vClass}">${vText}</div>
+      <div class="stats">
+        <div class="stat b"><div class="val">${marks} / ${maxMarks}</div><div class="lbl">कुल अंक</div></div>
+        <div class="stat g"><div class="val">${nCorrect}</div><div class="lbl">सही ✅</div></div>
+        <div class="stat r"><div class="val">${nWrong}</div><div class="lbl">गलत ❌</div></div>
+        <div class="stat y"><div class="val">${nSkip}</div><div class="lbl">छोड़े ⏭️</div></div>
+        <div class="stat b"><div class="val">${accuracy}%</div><div class="lbl">Accuracy</div></div>
+        <div class="stat"><div class="val">${mm}:${ss}</div><div class="lbl">समय</div></div>
+      </div>
+      <p style="font-size:.86rem;color:#64748b;margin-bottom:6px;text-align:center">
+        <b>हिसाब:</b> (सही × +1) − (गलत × 1) = (${nCorrect} × 1) − (${nWrong} × 1) =
+        <b style="color:#4338ca">${marks}</b> अंक &nbsp;|&nbsp;
+        Attempt: <b>${attempted}</b> / ${total}
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>🔍 प्रश्न-वार समीक्षा (Detailed Review)</h2>
+      <p class="sub">अपनी गलतियों से सीखो — यही असली तैयारी है</p>
+      <div class="reviewBox">
+  `;
+
+  review.forEach((r, i) => {
+    if (!r) return;
+    const cls = r.status === 'correct' ? 'ok' : r.status === 'wrong' ? 'no' : 'sk';
+    const tag = r.status === 'correct'
+        ? '<span class="tag ok">सही +1</span>'
+        : r.status === 'wrong'
+          ? '<span class="tag no">गलत −1</span>'
+          : '<span class="tag sk">छोड़ा 0</span>';
+    const yourLine = r.your
+        ? `<div class="ra">तुम्हारा उत्तर: <i>${r.your}</i></div>`
+        : `<div class="ra">तुम्हारा उत्तर: <i>नहीं दिया</i></div>`;
+    html += `
+      <div class="rev ${cls}">
+        <div class="rq">Q${i+1}. ${r.q} ${tag}</div>
+        ${yourLine}
+        <div class="ra">सही उत्तर: <b>${r.correct}</b></div>
+      </div>
+    `;
+  });
+
+  html += `
+      </div>
+      <div class="center" style="margin-top:18px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button class="btn primary" onclick="startQuiz('${currentMode ? currentMode.id : 'currency'}')">🔄 यही Quiz दोबारा</button>
+        <button class="btn ghost" onclick="showTab('quiz')">🎯 दूसरा भाग चुनें</button>
+        <button class="btn warn" onclick="showTab('notes')">📘 Notes पढ़ें</button>
+      </div>
+    </div>
+  `;
+
+  const box = document.getElementById('resultBox');
+  box.className = '';
+  box.innerHTML = html;
+
+  showTab('result');
+}
+
+/* =========================================================
+   15) NOTES RENDER
+   ========================================================= */
+function renderNotes() {
+  const regions = ["एशिया", "मध्य-पूर्व", "यूरोप", "अमेरिका", "अफ्रीका और ओशिनिया"];
+  let html = '';
+
+  regions.forEach(region => {
+    const list = COUNTRIES.filter(c => c.region === region);
+    html += `
+      <div class="card">
+        <h2>🌍 ${region} के देश</h2>
+        <div class="tblwrap">
+          <table>
+            <thead><tr><th>देश</th><th>राजधानी</th><th>मुद्रा (हिंदी + English)</th></tr></thead>
+            <tbody>
+    `;
+    list.forEach(c => {
+      html += `<tr>
+        <td>${c.country}</td>
+        <td>${c.capital}</td>
+        <td class="cur">${c.currencyHi} <span style="color:#64748b;font-weight:400">(${c.currencyEn})</span></td>
+      </tr>`;
+    });
+    html += `</tbody></table></div></div>`;
+  });
+
+  const sorted = [...COUNTRIES].sort((a, b) => a.currencyEn.localeCompare(b.currencyEn));
+  html += `
+    <div class="card">
+      <h2>🔤 मुद्रा – वर्णमाला क्रम (A-Z)</h2>
+      <p class="sub">English नाम के अनुसार क्रमबद्ध</p>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>#</th><th>देश</th><th>मुद्रा (हिंदी)</th><th>मुद्रा (English)</th></tr></thead>
+          <tbody>
+  `;
+  sorted.forEach((c, i) => {
+    html += `<tr>
+      <td>${i+1}</td><td>${c.country}</td>
+      <td class="cur">${c.currencyHi}</td><td>${c.currencyEn}</td>
+    </tr>`;
+  });
+  html += `</tbody></table></div></div>`;
+
+  document.getElementById('notesContainer').innerHTML = html;
+}
+
+/* =========================================================
+   16) KEYBOARD SHORTCUTS
+   ========================================================= */
+document.addEventListener('keydown', (e) => {
+  if (!document.getElementById('quiz').classList.contains('active')) return;
+  if (document.getElementById('quizBox').style.display === 'none') return;
+
+  switch (e.key) {
+    case '1': case '2': case '3': case '4': {
+      const opts = document.querySelectorAll('#options .opt');
+      const idx = parseInt(e.key, 10) - 1;
+      if (opts[idx]) opts[idx].click();
+      break;
+    }
+    case 'Enter': {
+      const nb = document.getElementById('nextBtn');
+      if (!nb.disabled) nb.click();
+      break;
+    }
+    case 'Backspace': {
+      e.preventDefault();
+      const bb = document.getElementById('backBtn');
+      if (!bb.disabled) bb.click();
+      break;
+    }
+    case 'Escape': {
+      handleAction({ type:'navigate', payload:{ direction:'exit' } });
+      break;
+    }
+  }
+});
+
+/* =========================================================
+   17) INIT
+   ========================================================= */
+window.addEventListener('DOMContentLoaded', () => {
+  renderNotes();
+});
+</script>
+</body>
+</html>
